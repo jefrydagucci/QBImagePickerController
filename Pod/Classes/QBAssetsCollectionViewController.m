@@ -82,6 +82,26 @@
     self.disableScrollToBottom = NO;
 }
 
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        UIView *header = [self headerView];
+        [self.view addSubview:header];
+    });
+}
+
+- (UIView *)headerView{
+    static UIView *headerView = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        CGRect deviceBound = [UIScreen mainScreen].bounds;
+        headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, deviceBound.size.width, 20)];
+        headerView.backgroundColor = [UIColor colorWithRed:0.4 green:0.65 blue:1 alpha:1];
+    });
+    return headerView;
+}
 
 #pragma mark - Accessors
 
