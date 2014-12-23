@@ -136,7 +136,12 @@
     
     // Show/hide done button
     if (allowsMultipleSelection) {
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(done:)];
+        NSDictionary *attr =  @{ NSFontAttributeName               : [UIFont systemFontOfSize:16],
+                                 NSForegroundColorAttributeName    : [UIColor blackColor] };
+        
+        [doneButton setTitleTextAttributes:attr forState:UIControlStateNormal];
+        [doneButton setTitleTextAttributes:attr forState:UIControlStateDisabled];
         [self.navigationItem setRightBarButtonItem:doneButton animated:NO];
     } else {
         [self.navigationItem setRightBarButtonItem:nil animated:NO];

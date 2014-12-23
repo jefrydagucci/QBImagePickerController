@@ -88,9 +88,6 @@ ALAssetsFilter * ALAssetsFilterFromQBImagePickerControllerFilterType(QBImagePick
     
     // Register cell classes
     [self.tableView registerClass:[QBImagePickerGroupCell class] forCellReuseIdentifier:@"GroupCell"];
-    
-    self.tableView.backgroundColor = [UIColor whiteColor];
-    self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
 }
 
 - (void)viewDidLoad
@@ -142,7 +139,12 @@ ALAssetsFilter * ALAssetsFilterFromQBImagePickerControllerFilterType(QBImagePick
     
     // Show/hide done button
     if (allowsMultipleSelection) {
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(done:)];
+        NSDictionary *attr =  @{ NSFontAttributeName               : [UIFont systemFontOfSize:16],
+                                 NSForegroundColorAttributeName    : [UIColor blackColor] };
+        
+        [doneButton setTitleTextAttributes:attr forState:UIControlStateNormal];
+        [doneButton setTitleTextAttributes:attr forState:UIControlStateDisabled];
         [self.navigationItem setRightBarButtonItem:doneButton animated:NO];
     } else {
         [self.navigationItem setRightBarButtonItem:nil animated:NO];
