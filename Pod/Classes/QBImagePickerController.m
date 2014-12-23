@@ -119,11 +119,8 @@ ALAssetsFilter * ALAssetsFilterFromQBImagePickerControllerFilterType(QBImagePick
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        UIView *header = [self headerView];
-        [self.navigationController.view addSubview:header];
-    });
+    UIView *header = [self headerView];
+    [self.navigationController.view addSubview:header];
 }
 
 - (UIView *)headerView{
