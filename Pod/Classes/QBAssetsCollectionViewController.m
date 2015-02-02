@@ -85,6 +85,7 @@
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     UIView *header = [self headerView];
+    [[self headerView] removeFromSuperview];
     [self.view addSubview:header];
 }
 

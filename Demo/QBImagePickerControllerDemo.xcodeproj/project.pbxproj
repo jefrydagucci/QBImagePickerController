@@ -291,9 +291,10 @@
 				ORGANIZATIONNAME = "Katsuma Tanaka";
 				TargetAttributes = {
 					AAD64EB818710798004C3AD5 = {
-						DevelopmentTeam = 727C3SULLK;
+						DevelopmentTeam = TWZXA2ZF63;
 					};
 					AAD64ED918710798004C3AD5 = {
+						DevelopmentTeam = TWZXA2ZF63;
 						TestTargetID = AAD64EB818710798004C3AD5;
 					};
 				};
